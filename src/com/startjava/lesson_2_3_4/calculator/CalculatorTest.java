@@ -9,17 +9,16 @@ public class CalculatorTest {
         char answer;
 
         do {
-            System.out.println("Введите первое число: ");
-            calculator.setFirstNumber(scanner.nextInt());
-            System.out.println("Укажите математическую операцию (+, -, *, /, ^, %): ");
-            calculator.setMathOperation(scanner.next().charAt(0));
-            System.out.println("Введите второе число: ");
-            calculator.setSecondNumber(scanner.nextInt());
-            System.out.println("Ответ: " + calculator.calculate());
+            System.out.println("Введите математическое выражение: (пример: 2 ^ 10)");
+            String[] mathProcedure = scanner.nextLine().split(" ");
+            calculator.setFirstNumber(Double.parseDouble(mathProcedure[0]));
+            calculator.setMathOperation(mathProcedure[1].charAt(0));
+            calculator.setSecondNumber(Double.parseDouble(mathProcedure[2]));
+            System.out.println(calculator.calculate());
 
             do {
                 System.out.println("Хотите продолжить? [Y/N]: ");
-                answer = scanner.next().charAt(0);
+                answer = scanner.nextLine().charAt(0);
             } while (answer != 'y' && answer != 'n');
         } while (answer == 'y');
     }

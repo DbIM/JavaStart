@@ -1,23 +1,23 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int firstNumber;
-    private int secondNumber;
+    private double firstNumber;
+    private double secondNumber;
     private char mathOperation;
 
-    public int getFirstNumber() {
+    public double getFirstNumber() {
         return firstNumber;
     }
 
-    public void setFirstNumber(int firstNumber) {
+    public void setFirstNumber(double firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    public int getSecondNumber() {
+    public double getSecondNumber() {
         return secondNumber;
     }
 
-    public void setSecondNumber(int secondNumber) {
+    public void setSecondNumber(double secondNumber) {
         this.secondNumber = secondNumber;
     }
 
@@ -29,9 +29,9 @@ public class Calculator {
         this.mathOperation = mathOperation;
     }
 
-    public int calculate() {
+    public double calculate() {
 
-        int result = 0;
+        double result = 0;
         switch (mathOperation) {
             case '+':
                 result = firstNumber + secondNumber;
@@ -49,11 +49,8 @@ public class Calculator {
                 result = firstNumber % secondNumber;
                 return result;
             case '^':
-                int power = 1;
-                for (int i = 1; i <= secondNumber; i++) {
-                    power *= firstNumber;
-                }
-                return power;
+                return Math.pow(firstNumber, secondNumber);
+
         }
         return result;
 
