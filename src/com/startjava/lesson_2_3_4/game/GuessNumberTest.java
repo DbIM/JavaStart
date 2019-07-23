@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("������ ����� �������������");
+        System.out.println("Первый игрок, представьтесь: ");
         Player firstPlayer = new Player(scan.nextLine());
-        System.out.println("������ ����� �������������");
+        System.out.println("Второй игрок, представьтесь: ");
         Player secondPlayer = new Player(scan.nextLine());
         GuessNumber game = new GuessNumber(firstPlayer, secondPlayer);
         char answer;
@@ -16,7 +16,7 @@ public class GuessNumberTest {
             game.start();
 
             do {
-                System.out.println("������ ����������? [Y/N]: ");
+                System.out.println('\n' + "Хотите повторить? [Y/N]: ");
                 answer = scan.next().charAt(0);
             } while (answer != 'y' && answer != 'n');
         } while (answer == 'y');
