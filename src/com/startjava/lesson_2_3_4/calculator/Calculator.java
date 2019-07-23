@@ -30,7 +30,6 @@ public class Calculator {
     }
 
     public double calculate() {
-
         double result = 0;
         switch (mathOperation) {
             case '+':
@@ -50,9 +49,7 @@ public class Calculator {
                 return result;
             case '^':
                 return Math.pow(firstNumber, secondNumber);
-
         }
         return result;
-
     }
 }

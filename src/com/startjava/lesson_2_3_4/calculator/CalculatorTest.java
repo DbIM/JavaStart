@@ -10,10 +10,10 @@ public class CalculatorTest {
 
         do {
             System.out.println("Введите математическое выражение: (пример: 2 ^ 10)");
-            String[] mathProcedure = scanner.nextLine().split(" ");
-            calculator.setFirstNumber(Double.parseDouble(mathProcedure[0]));
-            calculator.setMathOperation(mathProcedure[1].charAt(0));
-            calculator.setSecondNumber(Double.parseDouble(mathProcedure[2]));
+            String[] mathExpression = scanner.nextLine().split(" ");
+            calculator.setFirstNumber(Double.parseDouble(mathExpression[0]));
+            calculator.setMathOperation(mathExpression[1].charAt(0));
+            calculator.setSecondNumber(Double.parseDouble(mathExpression[2]));
             System.out.println(calculator.calculate());
 
             do {
