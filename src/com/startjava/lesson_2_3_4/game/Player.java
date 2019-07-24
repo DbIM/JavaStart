@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int numTry;
+
     private int[] attempts = new int[10];
 
     public Player(String name) {
@@ -17,14 +17,6 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getNumTry() {
-        return numTry;
-    }
-
-    public void setNumTry(int numTry) {
-        this.numTry = numTry;
     }
 
     public int getAttempt(int index) {
