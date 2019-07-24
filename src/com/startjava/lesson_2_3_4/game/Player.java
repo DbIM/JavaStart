@@ -1,5 +1,7 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
+
 public class Player {
     private String name;
     private int numTry;
@@ -25,23 +27,20 @@ public class Player {
         this.numTry = numTry;
     }
 
-    public int copyOfAttempts(int number) {
-        return attempts[number];
+    public int getAttempt(int index) {
+        return attempts[index];
     }
 
-    public void setAttempts(int attempts, int number) {
+    public void setAttempt(int attempts, int number) {
         this.attempts[attempts] = number;
     }
 
-    public int retAttemptsLength() {
+    public int attemptsLength() {
         return attempts.length;
     }
 
-    public void fill() {
-        for (int i = 0; i < attempts.length; i++) {
-            attempts[i] = 0;
-        }
+    public void makeNull() {
+        Arrays.fill(attempts, 0);
     }
-
 
 }

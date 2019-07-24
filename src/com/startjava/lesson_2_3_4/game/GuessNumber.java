@@ -10,9 +10,6 @@ public class GuessNumber {
     //объявляю количество попыток
     private int count = 0;
 
-    //объявляю переменую для хранения введенного игроком числа
-    private int tryGuess;
-
     public GuessNumber(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
@@ -26,56 +23,48 @@ public class GuessNumber {
                 System.out.println("У вас закончились попытки");
                 return;
             }
-            System.out.println(firstPlayer.getName() + " пробует угадать число: ");
-            tryGuess = scan.nextInt();
-            firstPlayer.setNumTry(tryGuess);
-            firstPlayer.setAttempts(count, tryGuess);
-            count++;
-            if (firstPlayer.getNumTry() < randomNumber) {
-                System.out.println("мало");
-            } else if (firstPlayer.getNumTry() > randomNumber) {
-                System.out.println("перебор");
-            } else if (firstPlayer.getNumTry() == randomNumber) {
-                System.out.println("в яблочко!");
-                System.out.println("Игрок " + firstPlayer.getName() + " угадал число с " + count + " попыток");
-                end();
-                return;
-            }
-            count--;
 
-            System.out.println(secondPlayer.getName() + " пробует угадать число: ");
-            tryGuess = scan.nextInt();
-            secondPlayer.setNumTry(tryGuess);
-            secondPlayer.setAttempts(count, tryGuess);
-            count++;
-            if (secondPlayer.getNumTry() < randomNumber) {
-                System.out.println("мало");
-            } else if (secondPlayer.getNumTry() > randomNumber) {
-                System.out.println("перебор");
-            } else if (secondPlayer.getNumTry() == randomNumber) {
-                System.out.println("в яблочко!");
-                System.out.println("Игрок " + secondPlayer.getName() + " угадал число с " + count + " попыток");
-                end();
+            if (gameProcess(firstPlayer) || gameProcess(secondPlayer)) {
                 return;
             }
+            count++;
         } while (true);
     }
 
-    public void end() {
+
+    public boolean gameProcess(Player player) {
+        System.out.println(player.getName() + " пробует угадать число: ");
+        player.setAttempt(count, scan.nextInt());
+        if (player.getAttempt(count) < randomNumber) {
+            System.out.println("мало");
+            return false;
+        } else if (player.getAttempt(count) > randomNumber) {
+            System.out.println("перебор");
+            return false;
+        } else if (player.getAttempt(count) == randomNumber) {
+            System.out.println("в яблочко!");
+            System.out.println("Игрок " + player.getName() + " угадал число с " + count + " попыток");
+            endLine();
+            return true;
+        }
+        return false;
+    }
+
+    public void endLine() {
         System.out.println("Числа первого игрока: ");
-        for (int i = 0; i < firstPlayer.retAttemptsLength(); i++) {
-            if (firstPlayer.copyOfAttempts(i) != 0) {
-                System.out.print(firstPlayer.copyOfAttempts(i) + " ");
+        for (int i = 0; i < firstPlayer.attemptsLength(); i++) {
+            if (firstPlayer.getAttempt(i) != 0) {
+                System.out.print(firstPlayer.getAttempt(i) + " ");
             }
         }
         System.out.println('\n' + "Числа второго игрока: ");
-        for (int i = 0; i < secondPlayer.retAttemptsLength(); i++) {
-            if (secondPlayer.copyOfAttempts(i) != 0) {
-                System.out.print(secondPlayer.copyOfAttempts(i) + " ");
+        for (int i = 0; i < secondPlayer.attemptsLength(); i++) {
+            if (secondPlayer.getAttempt(i) != 0) {
+                System.out.print(secondPlayer.getAttempt(i) + " ");
             }
         }
-        firstPlayer.fill();
-        secondPlayer.fill();
+        firstPlayer.makeNull();
+        secondPlayer.makeNull();
         count = 0;
     }
 }
