@@ -48,13 +48,13 @@ public class GuessNumber {
             System.out.println("в яблочко!");
             count++;
             System.out.println("Игрок " + player.getName() + " угадал число с " + count + " попыток");
-            endLine();
+            playerAttemptsLine();
             return true;
         }
         return false;
     }
 
-    private void endLine() {
+    private void playerAttemptsLine() {
         System.out.println("Числа первого игрока: ");
         for (int i = 0; i < count; i++) {
             if (firstPlayer.getAttempt(i) != 0) {
@@ -67,10 +67,10 @@ public class GuessNumber {
                 System.out.print(secondPlayer.getAttempt(i) + " ");
             }
         }
-        endGame();
+        setupCounts();
     }
 
-    private void endGame() {
+    private void setupCounts() {
         firstPlayer.makeNull(count);
         secondPlayer.makeNull(count);
         count = 0;
