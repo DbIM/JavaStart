@@ -24,18 +24,18 @@ public class GuessNumber {
                 return;
             }
 
-            if (gameProcess(firstPlayer) || gameProcess(secondPlayer)) {
-                playerAttemptsLine(firstPlayer);
-                playerAttemptsLine(secondPlayer);
-                setupCounts(firstPlayer);
-                setupCounts(secondPlayer);
+            if (playerMakeMove(firstPlayer) || playerMakeMove(secondPlayer)) {
+                playerAttemptsCounts(firstPlayer);
+                playerAttemptsCounts(secondPlayer);
+                initGame(firstPlayer);
+                initGame(secondPlayer);
                 return;
             }
             count++;
         } while (true);
     }
 
-    private boolean gameProcess(Player player) {
+    private boolean playerMakeMove(Player player) {
         System.out.println(player.getName() + " пробует угадать число: ");
         player.setAttempt(count, scan.nextInt());
         return testNumber(player);
@@ -57,7 +57,7 @@ public class GuessNumber {
         return false;
     }
 
-    private void playerAttemptsLine(Player player) {
+    private void playerAttemptsCounts(Player player) {
         System.out.println("Числа игрока " + player.getName() + " : ");
         for (int i = 0; i < count; i++) {
             if (player.getAttempt(i) != 0) {
@@ -67,7 +67,7 @@ public class GuessNumber {
         System.out.println(" ");
     }
 
-    private void setupCounts(Player player) {
+    private void initGame(Player player) {
         player.resetAttempts(count);
         count = 0;
     }
