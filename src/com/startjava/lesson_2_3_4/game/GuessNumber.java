@@ -24,9 +24,9 @@ public class GuessNumber {
                 return;
             }
 
-            if (playerMakeMove(firstPlayer) || playerMakeMove(secondPlayer)) {
-                playerAttemptsCounts(firstPlayer);
-                playerAttemptsCounts(secondPlayer);
+            if (makeMove(firstPlayer) || makeMove(secondPlayer)) {
+                showAttempts(firstPlayer);
+                showAttempts(secondPlayer);
                 initGame(firstPlayer);
                 initGame(secondPlayer);
                 return;
@@ -35,7 +35,7 @@ public class GuessNumber {
         } while (true);
     }
 
-    private boolean playerMakeMove(Player player) {
+    private boolean makeMove(Player player) {
         System.out.println(player.getName() + " пробует угадать число: ");
         player.setAttempt(count, scan.nextInt());
         return testNumber(player);
@@ -57,7 +57,7 @@ public class GuessNumber {
         return false;
     }
 
-    private void playerAttemptsCounts(Player player) {
+    private void showAttempts(Player player) {
         System.out.println("Числа игрока " + player.getName() + " : ");
         for (int i = 0; i < count; i++) {
             System.out.print(player.getAttempt(i) + " ");
