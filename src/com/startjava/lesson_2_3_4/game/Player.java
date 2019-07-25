@@ -23,16 +23,14 @@ public class Player {
         return attempts[index];
     }
 
-    public void setAttempt(int attempts, int number) {
-        this.attempts[attempts] = number;
+    public void setAttempt(int index, int number) {
+        this.attempts[index] = number;
     }
 
-    public int attemptsLength() {
-        return attempts.length;
-    }
-
-    public void makeNull() {
-        Arrays.fill(attempts, 0);
+    public void makeNull(int count) {
+        for (int i=0; i<count; i++) {
+            Arrays.fill(new int[]{attempts[i]}, 0);
+        }
     }
 
 }
