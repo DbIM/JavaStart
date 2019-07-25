@@ -60,9 +60,7 @@ public class GuessNumber {
     private void playerAttemptsCounts(Player player) {
         System.out.println("Числа игрока " + player.getName() + " : ");
         for (int i = 0; i < count; i++) {
-            if (player.getAttempt(i) != 0) {
-                System.out.print(player.getAttempt(i) + " ");
-            }
+            System.out.print(player.getAttempt(i) + " ");
         }
         System.out.println(" ");
     }
