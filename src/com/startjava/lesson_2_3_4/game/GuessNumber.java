@@ -31,13 +31,13 @@ public class GuessNumber {
         } while (true);
     }
 
-    boolean gameProcess(Player player) {
+    private boolean gameProcess(Player player) {
         System.out.println(player.getName() + " пробует угадать число: ");
         player.setAttempt(count, scan.nextInt());
         return testNumber(player);
     }
 
-    boolean testNumber(Player player) {
+    private boolean testNumber(Player player) {
         if (player.getAttempt(count) < randomNumber) {
             System.out.println("мало");
             return false;
@@ -54,7 +54,7 @@ public class GuessNumber {
         return false;
     }
 
-    void endLine() {
+    private void endLine() {
         System.out.println("Числа первого игрока: ");
         for (int i = 0; i < count; i++) {
             if (firstPlayer.getAttempt(i) != 0) {
@@ -70,7 +70,7 @@ public class GuessNumber {
         endGame();
     }
 
-    void endGame() {
+    private void endGame() {
         firstPlayer.makeNull(count);
         secondPlayer.makeNull(count);
         count = 0;
