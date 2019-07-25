@@ -51,19 +51,20 @@ public class GuessNumber {
         } else if (player.getAttempt(count) == randomNumber) {
             System.out.println("в яблочко!");
             count++;
-            System.out.print("Игрок " + player.getName() + " угадал число с " + count + " попыток");
+            System.out.println("Игрок " + player.getName() + " угадал число с " + count + " попыток");
             return true;
         }
         return false;
     }
 
     private void playerAttemptsLine(Player player) {
-        System.out.println('\n' + "Числа игрока " + player.getName() + " : ");
+        System.out.println("Числа игрока " + player.getName() + " : ");
         for (int i = 0; i < count; i++) {
             if (player.getAttempt(i) != 0) {
                 System.out.print(player.getAttempt(i) + " ");
             }
         }
+        System.out.println(" ");
     }
 
     private void setupCounts(Player player) {
