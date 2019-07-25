@@ -28,7 +28,7 @@ public class Player {
     }
 
     public void resetAttempts(int count) {
-            Arrays.fill(attempts, 0, count, 0);
+        Arrays.fill(attempts, 0, count, 0);
     }
 
 }
