@@ -27,8 +27,8 @@ public class Player {
         this.attempts[index] = number;
     }
 
-    public void resetAttempts(int number) {
-        Arrays.fill(attempts, 0, number, 0);
+    public void resetAttempts(int index) {
+        Arrays.fill(attempts, 0, index, 0);
     }
 
 }
