@@ -68,7 +68,7 @@ public class GuessNumber {
     }
 
     private void setupCounts(Player player) {
-        player.makeNull(count);
+        player.resetAttempts(count);
         count = 0;
     }
 }
